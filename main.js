@@ -7,7 +7,6 @@ function main(){
     let rows = Number(endCell.substr(2, endCell.length - 1));
 
     for(let i = 7; i<=rows; i++){
-        console.log('/*===='+i+'=====*/');
         let date = getCell(`A${i}`);
         let time = getCell(`B${i}`);
         let ce = getCell(`C${i}`);
