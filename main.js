@@ -8,17 +8,17 @@ function main(){
     let cnt = 100;
     let res = [];
     let endCell = sheet["!ref"].split(":")[1];
-    let rows = Number(endCell.substr(2, endCell.length - 1));
+    let rows = Number(endCell.substr(1, endCell.length - 1));
     
-    for(let i = 2; i<=151; i++){
+    for(let i = 2; i<=rows; i++){
         let obj = {};
         obj._sheet = getCell(`A${i}`);
         obj._vendor = getCell(`B${i}`);
         obj._proc_name = getCell(`C${i}`);
         obj._chemical = getCell(`D${i}`);
         obj._drawio_proc_name = getCell(`E${i}`);
-        obj._hrd = getCell(`F${i}`).split(',');
-        obj._condition = getCell(`G${i}`).split(',');
+        obj._hrd = getCell(`F${i}`) == ""? []:getCell(`F${i}`).split('|');
+        obj._condition = getCell(`G${i}`) == ""?[]:getCell(`G${i}`).split('|');
         res.push(obj);
         //console.log(obj);
     }
